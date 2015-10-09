@@ -1,0 +1,77 @@
+<DOCTYPE>
+<html>
+	<head>
+		<title>Example</title>
+	
+		<script src="jquery/jquery.min.js"></script>   
+		<script src="js/imq.min.js"></script>   
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container">		
+			<h1>Inline Media Queries</h1>
+			<p>Write inline styles for specific media queries. Currently supported are the same media queries as used in Bootstrap v. 3.x:<br>
+			
+			<ul>
+				<li>
+					xs (less than 768px)
+				</li>
+				<li>
+					sm (equal and greater than 768px)
+				</li>
+				<li>
+					md (equal and greather than 992px)
+				</li>
+				<li>
+					lg (equal and greater than 1200px)
+				</li>
+			</ul>
+			<h2>
+				Basic usage
+			</h2>
+			<p>Simple add data attributes to the desired HTML element with css styles</p>
+<pre>
+&lt;h3 	
+ data-style-lg="background-color: black; color: white;" 
+ data-style-md="background-color: green; color: white;"
+ data-style-sm="background-color: yellow; color: black;" 
+ data-style-xs="background-color: blue; color: white;"
+&gt;
+ Resize your browser window to see how it's working
+&lt;/h2&gt;</pre>
+			<h3 data-style-lg="background-color: black; color: white;" 
+				data-style-md="background-color: green; color: white;"
+				data-style-sm="background-color: yellow; color: black;" 
+				data-style-xs="background-color: blue; color: white;">
+				Resize your browser window to see how it's working
+			</h3>
+			
+			<h2>
+				Exclude elements from inline media queries
+			</h2>
+			<p>In case you might come across display problems or just need to hide the styles applied by inline media queries you can turn effects off
+				by adding the following data attribute to your element:
+			</p>
+<pre>
+&lt;h3 
+ data-style-exclude
+ data-style-lg="background-color: black; color: white;" 
+ data-style-md="background-color: green; color: white;"
+ data-style-sm="background-color: yellow; color: black;" 
+ data-style-xs="background-color: blue; color: white;"
+&gt;
+ Resize your browser window to see how it's working
+&lt;/h2&gt;</pre>
+			<h3 
+				data-style-exclude
+				data-style-lg="background-color: black; color: white;" 
+				data-style-md="background-color: green; color: white;"
+				data-style-sm="background-color: yellow; color: black;" 
+				data-style-xs="background-color: blue; color: white;">
+				Resize your browser window to see how it's working
+			</h3>
+		</div>
+	</body>
+</html>
