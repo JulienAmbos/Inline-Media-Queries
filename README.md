@@ -48,7 +48,7 @@ All you need is a version of the iqm.js file. For productive use include iqm.min
     <script src="js/iqm.min.js"></script> 
     
     <!-- Development --> 
-    <script src="js/iqm.min.js"></script>
+    <script src="js/iqm.js"></script>
 
 # Media queries
 
