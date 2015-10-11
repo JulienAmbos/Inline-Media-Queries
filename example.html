@@ -6,8 +6,16 @@
 		<script src="jquery/jquery.min.js"></script>   
 		<script src="js/imq.min.js"></script>   
 		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<script src="highlight/highlight.pack.js"></script>
 		
+		<link rel="stylesheet" href="highlight/styles/default.css">
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<script type="text/javascript">
+		$(document).ready(function() {
+  $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+});</script>
 	</head>
 	<body>
 		<div class="container" style="margin-bottom: 30px;">		
@@ -117,8 +125,8 @@
 			<p>
 				Apply the <code>data-style-standard</code> data attribute with standard media query data-style tags:
 			</p>
-<pre>
-&lt;h3 
+			
+<pre><code class="html">&lt;h3 
  data-style-standard	
  data-style-lg="background-color: black; color: white;" 
  data-style-md="background-color: green; color: white;"
@@ -126,7 +134,8 @@
  data-style-xs="background-color: blue; color: white;"
 &gt;
  Resize your browser window to see how it's working
-&lt;/h3&gt;</pre>
+&lt;/h3&gt;</code></pre>
+			
 			<h3 
 				data-style-standard
 				data-style-lg="background-color: black; color: white;" 
@@ -146,15 +155,14 @@
 			<p>
 				Apply the <code>data-style-custom</code> data attribute with custom media query data-style tags:
 			</p>
-<pre>
-&lt;h3 
+<pre><code class="html">&lt;h3 
  data-style-custom
  data-style-400="background-color: black; color: white;" 
  data-style-600="background-color: green; color: white;"
  data-style-800="background-color: yellow; color: black;" 
 &gt;
  Resize your browser window to see how it's working
-&lt;/h3&gt;
+&lt;/h3&gt;</code>
 </pre>
 			<h3 
 				data-style-custom
@@ -170,8 +178,7 @@
 			<p>In case you might come across display problems or just need to hide the styles applied by inline media queries you can turn effects off
 				by adding the data attribute <code>data-style-exclude</code> to the element.
 			</p>
-<pre>
-&lt;h3 
+<pre><code class="html">&lt;h3 
  data-style-standard
  data-style-exclude
  data-style-lg="background-color: black; color: white;" 
@@ -180,7 +187,7 @@
  data-style-xs="background-color: blue; color: white;"
 &gt;
  Resize your browser window to see how it's working
-&lt;/h3&gt;</pre>
+&lt;/h3&gt;</code></pre>
 			<h3 
 				data-style-standard
 				data-style-exclude
@@ -195,26 +202,20 @@
 			
 			<a name="Reload"></a><h2>Reload()</h2>
 				<p>You can reload all CSS styles by calling the <code>Reload()</code> function:</p>
-<pre>
-&lt;script type="text/javascript"&gt;
+<pre><code class="javascript">&lt;script type="text/javascript"&gt;
  IQM.Reload();
-&lt;/script&gt;
-</pre>
+&lt;/script&gt;</code></pre>
 			<a name="ReloadStandardQueries"></a><h2>ReloadStandardQueries()</h2>
 				<p>You can reload all CSS styles applied with standard queries by calling the <code>ReloadStandardQueries()</code> function:</p>
-<pre>
-&lt;script type="text/javascript"&gt;
+<pre><code class="javascript">&lt;script type="text/javascript"&gt;
  IQM.ReloadStandardQueries();
-&lt;/script&gt;
-</pre>
+&lt;/script&gt;</code></pre>
 			
 			<a name="ReloadCustomQueries"></a><h2>ReloadCustomQueries()</h2>
 				<p>You can reload all CSS styles applied with custom queries by calling the <code>ReloadCustomQueries()</code> function:</p>
-<pre>
-&lt;script type="text/javascript"&gt;
+<pre><code class="javascript">&lt;script type="text/javascript"&gt;
  IQM.ReloadCustomQueries();
-&lt;/script&gt;
-</pre>
+&lt;/script&gt;</code></pre>
 			<a name="Summary"></a><h1>Summary</h1>
 			<p>Thank you for reaching the bottom of this page. If you're interested, contribute anytime to this library on <a href="https://github.com/JulienAmbos/Inline-Media-Queries">https://github.com/JulienAmbos/Inline-Media-Queries</a>.</p>
 		</div>
