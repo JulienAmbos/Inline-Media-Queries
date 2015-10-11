@@ -4,62 +4,175 @@
 		<title>Example</title>
 	
 		<script src="jquery/jquery.min.js"></script>   
-		<script src="js/imq.min.js"></script>   
+		<script src="js/imq.js"></script>   
 		<script src="bootstrap/js/bootstrap.min.js"></script>
 		
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	</head>
 	<body>
-		<div class="container">		
+		<div class="container" style="margin-bottom: 30px;">		
 			<h1>Inline Media Queries</h1>
-			<p>Write inline styles for specific media queries. Currently supported are the same media queries as used in Bootstrap v. 3.x:<br>
-			
+			<p style="font-size: 20px;">Write inline styles for specific media queries.</p>
+			<h1>Table of content</h1>
+			<p>Jump quickly to a topic.</p>
 			<ul>
 				<li>
-					xs (less than 768px)
+					<a href="#Overview">Overview</a>
 				</li>
 				<li>
-					sm (equal and greater than 768px)
+					<a href="#MediaQueries">Media Queries</a>
+					<ul>
+						<li>
+							<a href="#StandardMediaQueries1">Standard media queries</a>
+						</li>
+						<li>
+							<a href="#CustomMediaQueries1">Custom media queries</a>
+						</li>
+					</ul>
 				</li>
 				<li>
-					md (equal and greather than 992px)
+					<a href="#BasicUsage">Basic usage</a>
+					<ul>
+						<li>
+							<a href="#StandardMediaQueries2">Standard media queries</a>
+						</li>
+						<li>
+							<a href="#CustomMediaQueries2">Custom media queries</a>
+						</li>
+					</ul>
 				</li>
 				<li>
-					lg (equal and greater than 1200px)
+					<a href="#Exclude">Exclude elements from inline media queries</a>
+				</li>
+				<li>
+					<a href="#Programmability">Programmability</a>
+					<ul>
+						<li>
+							<a href="#Reload">Reload()</a>
+						</li>
+						<li>
+							<a href="#ReloadStandardQueries">ReloadStandardQueries()</a>
+						</li>
+						<li>
+							<a href="#ReloadCustomQueries">ReloadCustomQueries()</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#Summary">Summary</a>
 				</li>
 			</ul>
-			<h2>
+			
+			<a name="Overview"></a><h1>Overview</h1></span>
+			<p>Inline Media Query uses data attributes with the prefix <code>data-style</code> to write inline styles.
+			   A media query is a descriptor for applying certain CSS styles for specific devices using the width of the browser. You can either use Bootstrap-like media queries using the postfixes <code>xs</code>, <code>sm</code>, <code>md</code> or
+			   <code>lg</code>, or use dynamic viewport widths by simply applying any number you like as a postfix to apply CSS styles to.
+			   
+			<a name="MediaQueries"></a><h1>Media queries</h1>
+			<p>
+				You can either use predefined media queries as defined in Bootstrap v. 3.x using named postfixes or you can address any browser width by using a number as a dynamic postfix.<br>			
+			<a name="StandardMediaQueries1"></a><h2>Standard media queries</h2>
+			<p>If you want to use standard Bootstrap media queries, apply to any HTML element the <code>data-style-standard</code> data attribute to set up for standard media queries.
+			   Add the following data-style attributes to address the corresponding viewport width:
+			<ul>
+				<li>
+					data-style-<code>xs</code> (less than 768px)
+				</li>
+				<li>
+					data-style-<code>sm</code> (equal and greater than 768px)
+				</li>
+				<li>
+					data-style-<code>md</code> (equal and greather than 992px)
+				</li>
+				<li>
+					data-style-<code>lg</code> (equal and greater than 1200px)
+				</li>
+			</ul>
+			
+			<a name="CustomMediaQueries1"></a><h2>Custom media queries</h2>
+			<p>
+				If you want to use custom media queries, apply to any HTML element the <code>data-style-custom</code> data attribute to set up for custom media queries.
+			   Add any number as data-style postifx to address the corresponding viewport width:
+			</p>
+			<ul>
+				<li>
+					data-style-<code>&lt;number&gt;</code> (equal and greater than the given number)
+				</li>
+				<li>
+					e.g. data-style-<code>400</code> (equal and greater than 400px)
+				</li>
+				<li>
+					e.g. data-style-<code>600</code> (equal and greater than 600px)
+				</li>
+				<li>
+					e.g. data-style-<code>800</code> (equal and greater than 800px)
+				</li>
+			</ul>
+			
+			<a name="BasicUsage"></a><h1>
 				Basic usage
-			</h2>
-			<p>Simple add data attributes to the desired HTML element with css styles</p>
+			</h1>
+			<p>Simple add data attributes to the desired HTML element with css styles as value.</p>
+			<a name="StandardMediaQueries2"></a><h2>Standard media queries</h2>
+			<p>
+				Apply the <code>data-style-standard</code> data attribute with standard media query data-style tags:
+			</p>
 <pre>
-&lt;h3 	
+&lt;h3 
+ data-style-standard	
  data-style-lg="background-color: black; color: white;" 
  data-style-md="background-color: green; color: white;"
  data-style-sm="background-color: yellow; color: black;" 
  data-style-xs="background-color: blue; color: white;"
 &gt;
  Resize your browser window to see how it's working
-&lt;/h2&gt;</pre>
-			<h3 data-style-lg="background-color: black; color: white;" 
+&lt;/h3&gt;</pre>
+			<h3 
+				data-style-standard
+				data-style-lg="background-color: black; color: white;" 
 				data-style-md="background-color: green; color: white;"
 				data-style-sm="background-color: yellow; color: black;" 
 				data-style-xs="background-color: blue; color: white;">
 				Resize your browser window to see how it's working
 			</h3>
 			
-			<h2>
-				Exclude elements from inline media queries
+			<a name="CustomMediaQueries2"></a><h2>
+				Custom media queries
 			</h2>
-			<p>In case you might come across display problems or just need to hide the styles applied by inline media queries you can turn effects off
-				by adding the following data attribute to your element:
+			<p>
+				Address custom viewports using the dynamic data attribute data-style-* (* needs to be a number). When applying a data-style attribute with any 
+				number the styles will apply for the browser width equal and greater the given number.
+			</p>
+			<p>
+				Apply the <code>data-style-custom</code> data attribute with custom media query data-style tags:
 			</p>
 <pre>
-data-style-exclude
+&lt;h3 
+ data-style-custom
+ data-style-400="background-color: black; color: white;" 
+ data-style-600="background-color: green; color: white;"
+ data-style-800="background-color: yellow; color: black;" 
+&gt;
+ Resize your browser window to see how it's working
+&lt;/h3&gt;
 </pre>
-<p>Full example:</p>
+			<h3 
+				data-style-custom
+				data-style-400="background-color: black; color: white;" 
+				data-style-600="background-color: green; color: white;"
+				data-style-800="background-color: yellow; color: black;">
+				Resize your browser window to see how it's working
+			</h3>
+			
+			<a name="Exclude"></a><h1>
+				Exclude elements from inline media queries
+			</h1>
+			<p>In case you might come across display problems or just need to hide the styles applied by inline media queries you can turn effects off
+				by adding the data attribute <code>data-style-exclude</code> to the element.
+			</p>
 <pre>
 &lt;h3 
+ data-style-standard
  data-style-exclude
  data-style-lg="background-color: black; color: white;" 
  data-style-md="background-color: green; color: white;"
@@ -67,8 +180,9 @@ data-style-exclude
  data-style-xs="background-color: blue; color: white;"
 &gt;
  Resize your browser window to see how it's working
-&lt;/h2&gt;</pre>
+&lt;/h3&gt;</pre>
 			<h3 
+				data-style-standard
 				data-style-exclude
 				data-style-lg="background-color: black; color: white;" 
 				data-style-md="background-color: green; color: white;"
@@ -76,6 +190,33 @@ data-style-exclude
 				data-style-xs="background-color: blue; color: white;">
 				Resize your browser window to see how it's working
 			</h3>
+			<a name="Programmability"></a><h1>Programmability</h1>
+			<p>Initially on including the iqm.js file, inline media queries loads all CSS on <code>$(document).ready();</code>
+			
+			<a name="Reload"></a><h2>Reload()</h2>
+				<p>You can reload all CSS styles by calling the <code>Reload()</code> function:</p>
+<pre>
+&lt;script type="text/javascript"&gt;
+ IQM.Reload();
+&lt;/script&gt;
+</pre>
+			<a name="ReloadStandardQueries"></a><h2>ReloadStandardQueries()</h2>
+				<p>You can reload all CSS styles applied with standard queries by calling the <code>ReloadStandardQueries()</code> function:</p>
+<pre>
+&lt;script type="text/javascript"&gt;
+ IQM.ReloadStandardQueries();
+&lt;/script&gt;
+</pre>
+			
+			<a name="ReloadCustomQueries"></a><h2>ReloadCustomQueries()</h2>
+				<p>You can reload all CSS styles applied with custom queries by calling the <code>ReloadCustomQueries()</code> function:</p>
+<pre>
+&lt;script type="text/javascript"&gt;
+ IQM.ReloadCustomQueries();
+&lt;/script&gt;
+</pre>
+			<a name="Summary"></a><h1>Summary</h1>
+			<p>Thank you for reaching the bottom of this page. If you're interested, contribute anytime to this library on <a href="https://github.com/JulienAmbos/Inline-Media-Queries">https://github.com/JulienAmbos/Inline-Media-Queries</a>.</p>
 		</div>
 	</body>
 </html>
