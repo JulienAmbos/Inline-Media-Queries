@@ -164,19 +164,19 @@ You can reload all CSS styles applied with custom queries by calling the `Reload
 Thank you for reaching the bottom of this page. If you're interested, contribute anytime to this library on [https://github.com/JulienAmbos/Inline-Media-Queries][15].
 
 
-[0]: #Overview
-[1]: #Setup
-[2]: #Installation
-[3]: #MediaQueries
-[4]: #StandardMediaQueries1
-[5]: #CustomMediaQueries1
-[6]: #BasicUsage
-[7]: #StandardMediaQueries2
-[8]: #CustomMediaQueries2
-[9]: #Exclude
-[10]: #Programmability
-[11]: #Reload
-[12]: #ReloadStandardQueries
-[13]: #ReloadCustomQueries
-[14]: #Summary
+[0]: #overview
+[1]: #setup
+[2]: #installation
+[3]: #mediaqueries
+[4]: #standardmediaqueries1
+[5]: #custommediaqueries1
+[6]: #basicusage
+[7]: #standardmediaqueries2
+[8]: #custommediaqueries2
+[9]: #exclude
+[10]: #programmability
+[11]: #reload
+[12]: #reloadstandardqueries
+[13]: #reloadcustomqueries
+[14]: #summary
 [15]: https://github.com/JulienAmbos/Inline-Media-Queries
