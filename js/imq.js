@@ -89,6 +89,7 @@ var IQM = {};
      */
     var executeWorkflow = function(retrieveStyles, clearStyles, dataStyleType) {
         clearStyles();
+        viewports = [];
         retrieveStyles();
         orderViewportsBySize();
         var styleBuilder = createStylebuilder(dataStyleType);
@@ -100,8 +101,6 @@ var IQM = {};
      */
     var retrieveStylesStandard = function() {
 
-        var queryNames = extractQueryNames(standardQueries);
-
         $("*[data-style-standard]").each(function() {
             var currentIQMElement = this;
 
@@ -110,7 +109,7 @@ var IQM = {};
                 $(currentIQMElement.attributes).each(function() {
                     var iqmElementAttribute = this;
 
-                    if ($.inArray(iqmElementAttribute.name, queryNames) != -1) {
+                    if ($.inArray(iqmElementAttribute.name, extractQueryNames(standardQueries)) != -1) {
 
                         if (iqmElementAttribute.name.substr(0, 10) == "data-style") {
 
@@ -143,16 +142,18 @@ var IQM = {};
                     if (iqmElementAttribute.name.substr(0, 10) == "data-style") {
 
                         var viewportWidth = iqmElementAttribute.name.substr(11, iqmElementAttribute.length);
-
-                        if (!isNaN(viewportWidth)) {
-                            var currentQuery = {
-                                "selector": "*[" + iqmElementAttribute.name + "]",
-                                "shortname": viewportWidth.toString(),
-                                "size": viewportWidth
-                            };
-
-                            addViewportIfNotExists(currentQuery);
-                            addClassToViewport(formCssClass(currentIQMElement, currentQuery), currentQuery);
+                        
+                        if ($.inArray(iqmElementAttribute.name, extractQueryNames(standardQueries)) == -1) {
+                            if (!isNaN(viewportWidth)) {
+                                var currentQuery = {
+                                    "selector": "*[" + iqmElementAttribute.name + "]",
+                                    "shortname": viewportWidth.toString(),
+                                    "size": viewportWidth
+                                };
+    
+                                addViewportIfNotExists(currentQuery);
+                                addClassToViewport(formCssClass(currentIQMElement, currentQuery), currentQuery);
+                            }
                         }
                     }
                 });
