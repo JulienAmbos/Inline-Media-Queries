@@ -45,10 +45,10 @@ or include locally:
 All you need is a version of the iqm.js file. For productive use include iqm.min.js and for development use include iqm.js:
 
     <!-- Production --> 
-    <script src="js/iqm.min.js"></script> 
+    <script src="js/imq.min.js"></script> 
     
     <!-- Development --> 
-    <script src="js/iqm.js"></script>
+    <script src="js/imq.js"></script>
 
 # Media queries
 
